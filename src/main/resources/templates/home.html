@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background-color: #e3e2e2;
+        }
+        h1{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 50px;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+        h2{
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+        }
+        input{
+            color: #fff!important;
+            font-size: larger;
+            background-color: #000!important;
+            border: none;
+            display: inline-block;
+            padding: 10px 20px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        input:hover{
+            background-color: white;
+            color: black;
+            transition: .3s;
+        }
+        .section{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .main{
+            margin-top: 100px;
+            padding-top: 50px;
+            background-color: #ad261c;
+            max-width: 100%;
+            min-height: 500px;
+        }
+        .logout{
+            position: absolute;
+            right: 30px;
+            top: 70px;
+        }
+        header{
+            background-color: #af251c !important;
+        }
+        img{
+            height: 170px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="https://play-lh.googleusercontent.com/bnh94yolrrxrrVQglNl1abEIh7Qc-cNA9XrVgDk1qBAzNEt6pCc3Fye5ot2Gi5n2-DY">
+</header>
+<div class="main">
+    <h1>Welcome to Demirbank</h1>
+    <h2>What do you want to do?</h2>
+    <div class="logout">
+        <form action="/logout">
+            <input type="submit" value="Log out">
+        </form>
+    </div>
+    <br>
+    <div class="section">
+        <form action="/bank/showAmount">
+            <input type="submit" value="See amount">
+        </form>
+        <form action="/bank/takeAmount">
+            <input type="submit" value="Take Money">
+        </form>
+        <form action="/bank/addAmount">
+            <input type="submit" value="Put Money">
+        </form>
+        <form action="/bank/transfer">
+            <input type="submit" value="Transfer">
+        </form>
+        <form action="/bank/myCard_number">
+            <input type="submit" value="See Card Number">
+        </form>
+    </div>
+</div>
+</body>
+</html>

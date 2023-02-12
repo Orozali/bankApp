@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Transfer</title>
+  <style>
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    input[type=submit] {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+    input[type=submit]:hover {
+      opacity: 0.8;
+    }
+    body{
+      font-family: sans-serif;
+      position: relative;
+    }
+    .container{
+      max-width: 500px;
+      position: absolute;
+      left: 40%;
+      top: 5%;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <form th:method="POST" th:action="@{/bank/transfer}" th:object="${person}">
+    <label for="username">Write card number whom you want to send money! </label><br>
+    <input type="text" th:field="*{card_number}" id="username" placeholder="XXXX XXXX XXXX XXXX"/><br>
+    <div th:if="${#fields.hasErrors('card_number')}" th:errors="*{card_number}" style="color: red">Error</div>
+
+    <label for="amount">Write amount of money you want to send! </label><br>
+    <input type="text" th:field="*{amount}" id="amount"/><br>
+    <div th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}" style="color: red">Error</div>
+    <input type="submit" value="Submit">
+
+  </form>
+</div>
+
+</body>
+</html>
