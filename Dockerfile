@@ -8,4 +8,4 @@ FROM openjdk:19
 WORKDIR /app
 COPY --from=build /app/target/bankApp-0.0.1-SNAPSHOT.jar .
 CMD ["java", "-jar", "bankApp-0.0.1-SNAPSHOT.jar"]
-EXPOSE 8082
+EXPOSE 8080
