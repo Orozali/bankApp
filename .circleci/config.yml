@@ -10,9 +10,9 @@ jobs:
       - run:
           name: Build and Push Docker Image
           command: |
-            docker build -t orozali/bankApp-backend:v1 .
+            docker build -t orozali/docker-tutorial:latest .
             echo "$DOCKERHUB_PASSWORD" | docker login --username orozali --password-stdin
-            docker push orozali/restaurant-backend:v1
+            docker push orozali/docker-tutorial:latest
   pull-and-deploy:
     docker:
       - image: circleci/node:14
@@ -27,9 +27,9 @@ jobs:
       - run:
           name: Pull Image and Deploy
           command: |
-            ssh -o "StrictHostKeyChecking=no" -i ./Orozali.pem ubuntu@$HOST '
-            sudo docker pull orozali/bankApp-backend:v1
-            sudo docker run -d -p 80:8080 orozali/bankApp-backend:v1
+            ssh -o “StrictHostKeyChecking=no” -i ./Orozali.pem ubuntu@$HOST '
+            sudo docker pull orozali/docker-tutorial:latest
+            sudo docker run -d -p 80:8080 orozali/docker-tutorial:latest
             '
 workflows:
   deploy:
