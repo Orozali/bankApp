@@ -1,4 +1,5 @@
 version: 2.1
+
 jobs:
   build-and-push:
     docker:
@@ -9,17 +10,19 @@ jobs:
       - run:
           name: Build and Push Docker Image
           command: |
-            docker build -t orozali/docker-tutorial:latest -f Dockerfile .
+            docker build -t orozali/docker-tutorial:latest .
             echo “$DOCKERHUB_PASSWORD” | docker login --username orozali --password-stdin
             docker push orozali/docker-tutorial:latest
   pull-and-deploy:
     docker:
       - image: circleci/node:14
     steps:
+      - checkout
+      - setup_remote_docker
       - run:
           name: Install SSH And Configure
           command: |
-            echo “$SSH_PRIVATE_KEY” | base64 -d > ./privateKey.pem
+            echo $SSH_PRIVATE_KEY | base64 -d > ./privateKey.pem
             chmod 400 privateKey.pem
       - run:
           name: Pull Image and Deploy
