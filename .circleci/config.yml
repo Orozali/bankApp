@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Install SSH And Configure
           command: |
-            echo $SSH_PRIVATE_KEY | base64 --decode > ./key.pem
+            echo "$SSH_PRIVATE_KEY" | base64 --decode > ./key.pem
             chmod 400 key.pem
       - run:
           name: Pull Image and Deploy
