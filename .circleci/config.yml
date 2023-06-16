@@ -11,7 +11,7 @@ jobs:
           name: Build and Push Docker Image
           command: |
             docker build -t orozali/docker-tutorial:latest .
-            echo $DOCKERHUB_PASSWORD | docker login --username orozali --password-stdin
+            echo '$DOCKERHUB_PASSWORD' | docker login --username orozali --password-stdin
             docker push orozali/docker-tutorial:latest
   pull-and-deploy:
     docker:
